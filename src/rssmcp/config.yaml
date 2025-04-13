@@ -1,0 +1,7 @@
+# RSS MCP Configuration
+
+# Timezone settings
+timezone: "Asia/Tokyo"
+
+# Feed settings
+max_entries_per_feed: 10

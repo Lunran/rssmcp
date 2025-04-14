@@ -1,5 +1,5 @@
 # rssmcp MCP server
-
+[![smithery badge](https://smithery.ai/badge/@Lunran/rssmcp)](https://smithery.ai/server/@Lunran/rssmcp)  
 Simple RSS MCP Server
 
 ## Components
@@ -13,6 +13,14 @@ The server implements one tool:
   - Returns formatted feed entries as text and optionally exports to a file
 
 ## Quickstart
+
+### Installing via Smithery
+
+To install rssmcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@Lunran/rssmcp):
+
+```bash
+npx -y @smithery/cli install @Lunran/rssmcp --client claude
+```
 
 ### Install
 

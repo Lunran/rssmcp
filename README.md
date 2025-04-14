@@ -16,16 +16,14 @@ The server implements one tool:
 
 ### Install
 
-<details>
-  <summary>Published Servers Configuration</summary>
-  ```
-  "mcpServers": {
-    "rssmcp": {
-      "command": "uvx",
-      "args": [
-        "rssmcp"
-      ]
-    }
+```
+"mcpServers": {
+  "rssmcp": {
+    "command": "uvx",
+    "args": [
+      "-U", "rssmcp"
+      "--opml", "path/to/your.opml"],
+    ]
   }
-  ```
-</details>
+}
+```

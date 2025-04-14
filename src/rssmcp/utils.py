@@ -4,11 +4,8 @@ from typing import Dict, List
 
 import yaml
 
-config_path = Path(__file__).parent / "config.yaml"
-opml_path = Path(__file__).parent / "feeds.opml"
 
-
-def load_yaml() -> Dict:
+def load_yaml(config_filename: str) -> Dict:
     """
     Load YAML file and return its content as a dictionary
     Args:
@@ -16,11 +13,12 @@ def load_yaml() -> Dict:
     Returns:
         Dictionary with the content of the YAML file
     """
+    config_path = Path(__file__).parent / config_filename
     with open(config_path, "r") as f:
         return yaml.safe_load(f)
 
 
-def load_opml() -> Dict[str, List[str]]:
+def load_opml(opml_filename: str) -> Dict[str, List[str]]:
     """
     Parse OPML file and extract RSS feeds grouped by category
     Args:
@@ -28,9 +26,10 @@ def load_opml() -> Dict[str, List[str]]:
     Returns:
         Dictionary with categories as keys and lists of feed URLs as values
     """
-    feeds: dict[str, list[str]] = {}
+    opml_path = Path(__file__).parent / opml_filename
     root = ET.parse(opml_path).getroot()
 
+    feeds: dict[str, list[str]] = {}
     for category in root.findall(".//outline[@title]"):
         category_name = category.attrib.get("text")
         if category_name:

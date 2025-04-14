@@ -1,15 +1,12 @@
-from datetime import datetime
+import argparse
 from typing import List
-from zoneinfo import ZoneInfo
 
 from mcp.server.fastmcp import FastMCP
 
 from rssmcp.server import RssCollector
-from rssmcp.utils import load_yaml
-
-config = load_yaml()
 
 mcp = FastMCP("rssmcp")
+rss_collector = None
 
 
 @mcp.tool()
@@ -23,12 +20,18 @@ def get_rss(feed_name: str, since: str, export_result: bool = False) -> List[str
     Returns:
         Fetched text
     """
-    since_dt = datetime.strptime(since, "%Y-%m-%d").replace(tzinfo=ZoneInfo(config["timezone"]))
-    text = RssCollector(feed_name, since_dt, export_result).run()
+    text = rss_collector.run(feed_name, since, export_result)
 
     return text
 
 
 def main():
-    """Main entry point for the package."""
+    parser = argparse.ArgumentParser(description="RSS MCP Server")
+    parser.add_argument("--config", help="Path to config file", default="config.yaml")
+    parser.add_argument("--opml", help="Path to opml file", default="feeds.opml")
+    args = parser.parse_args()
+
+    global rss_collector
+    rss_collector = RssCollector(args.config, args.opml)
+
     mcp.run(transport="stdio")

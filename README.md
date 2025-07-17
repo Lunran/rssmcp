@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/lunran-rssmcp-badge.png)](https://mseep.ai/app/lunran-rssmcp)
+
 # rssmcp MCP server
 [![smithery badge](https://smithery.ai/badge/@Lunran/rssmcp)](https://smithery.ai/server/@Lunran/rssmcp)  
 Simple RSS MCP Server

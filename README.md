@@ -1,5 +1,5 @@
 # rssmcp MCP server
-[![smithery badge](https://smithery.ai/badge/@Lunran/rssmcp)](https://smithery.ai/server/@Lunran/rssmcp)  
+[![LightNow capabilities](https://lightnow.ai/badge/io.github.Lunran/rssmcp)](https://lightnow.ai/servers/io.github.Lunran/rssmcp)\
 Simple RSS MCP Server
 
 ## Components
